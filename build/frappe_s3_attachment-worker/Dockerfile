@@ -1,4 +1,4 @@
-FROM frappe/erpnext-worker:v13.0.0
+FROM frappe/erpnext-worker:v13.0.1
 USER root
 RUN sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS    -1/' /etc/login.defs && \
     sed -i 's/^PASS_MIN_DAYS.*/PASS_MIN_DAYS    -1/' /etc/login.defs
