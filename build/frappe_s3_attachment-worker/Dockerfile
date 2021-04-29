@@ -1,4 +1,5 @@
-FROM frappe/erpnext-worker:v13.0.1
+ARG ERPIMAGE
+FROM frappe/erpnext-worker:$ERPIMAGE
 USER root
 RUN sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS    -1/' /etc/login.defs && \
     sed -i 's/^PASS_MIN_DAYS.*/PASS_MIN_DAYS    -1/' /etc/login.defs
