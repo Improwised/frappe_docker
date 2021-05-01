@@ -18,19 +18,19 @@ git clone --depth 1 ${APP_REPO} ${BRANCH} ${APP_NAME}
 
 echo "Install frappe NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/frappe
-yarn
+yarn --verbose
 echo "Install ${APP_NAME} NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
-yarn
+yarn --verbose
 echo "Build browser assets . . ."
 cd /home/frappe/frappe-bench/apps/frappe
-yarn production --app ${APP_NAME}
+yarn production --app ${APP_NAME} --verbose
 echo "Install frappe NodeJS production dependencies . . ."
 cd /home/frappe/frappe-bench/apps/frappe
-yarn install --production=true
+yarn install --production=true --verbose
 echo "Install ${APP_NAME} NodeJS production dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
-yarn install --production=true
+yarn install --production=true --verbose
 
 mkdir -p /home/frappe/frappe-bench/sites/assets/${APP_NAME}
 
