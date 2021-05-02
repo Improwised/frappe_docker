@@ -21,16 +21,16 @@ cd /home/frappe/frappe-bench/apps/frappe
 yarn --verbose
 echo "Install ${APP_NAME} NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
-yarn --verbose
+yarn
 echo "Build browser assets . . ."
 cd /home/frappe/frappe-bench/apps/frappe
-yarn production --app ${APP_NAME} --verbose
+yarn production --app ${APP_NAME}
 echo "Install frappe NodeJS production dependencies . . ."
 cd /home/frappe/frappe-bench/apps/frappe
-yarn install --production=true --verbose
+yarn install --production=true
 echo "Install ${APP_NAME} NodeJS production dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
-yarn install --production=true --verbose
+yarn install --production=true
 
 mkdir -p /home/frappe/frappe-bench/sites/assets/${APP_NAME}
 
