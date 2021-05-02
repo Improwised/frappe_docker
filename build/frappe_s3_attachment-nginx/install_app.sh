@@ -18,7 +18,10 @@ git clone --depth 1 ${APP_REPO} ${BRANCH} ${APP_NAME}
 
 echo "Install frappe NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/frappe
-yarn --verbose
+yarn &
+WAIT_YARN=$!
+## solve stuck while installing yarn
+while [[ $(ps -aux | grep ${WAIT_YARN} | grep -v grep | awk '{printf $2}') == ${WAIT_YARN} ]]; do echo "waiting to install yarn"; sleep 10; done
 echo "Install ${APP_NAME} NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
 yarn
