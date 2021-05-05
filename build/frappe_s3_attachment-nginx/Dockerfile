@@ -1,10 +1,9 @@
-ARG ERPIMAGE
 FROM bitnami/node:12-prod
 COPY ./install_app.sh /install_app
 RUN install_packages git phantomjs
 RUN /install_app frappe_s3_attachment https://github.com/Improwised/frappe_s3_attachment
 
-FROM frappe/erpnext-nginx:$ERPIMAGE
+FROM frappe/erpnext-nginx:latest
 RUN sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS    -1/' /etc/login.defs && \
     sed -i 's/^PASS_MIN_DAYS.*/PASS_MIN_DAYS    -1/' /etc/login.defs
 COPY --from=0 /home/frappe/frappe-bench/sites/ /var/www/html/

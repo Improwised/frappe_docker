@@ -10,7 +10,7 @@ mkdir -p /home/frappe/frappe-bench/sites/assets
 cd /home/frappe/frappe-bench
 echo -e "frappe\n${APP_NAME}" > /home/frappe/frappe-bench/sites/apps.txt
 export  QT_QPA_PLATFORM=offscreen
-npm install -g chalk
+npm install -g chalk rollup
 
 mkdir -p apps
 cd apps
@@ -22,7 +22,7 @@ cd /home/frappe/frappe-bench/apps/frappe
 yarn &
 WAIT_YARN=$!
 ## solve stuck while installing yarn
-while [[ $(ps -aux | grep ${WAIT_YARN} | grep -v grep | awk '{printf $2}') == ${WAIT_YARN} ]]; do echo "waiting to install yarn"; sleep 10; done
+while [[ $(ps -aux | grep ${WAIT_YARN} | grep -v grep | awk '{printf $2}') == ${WAIT_YARN} ]]; do echo "waiting for installation "; sleep $(( ( RANDOM % 10 ) + 1 )); done
 echo "Install ${APP_NAME} NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
 yarn
