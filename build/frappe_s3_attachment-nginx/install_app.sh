@@ -1,4 +1,4 @@
-#!/bin/bash -xe
+#!/bin/bash -e
 
 APP_NAME=${1}
 APP_REPO=${2}
@@ -10,7 +10,7 @@ mkdir -p /home/frappe/frappe-bench/sites/assets
 cd /home/frappe/frappe-bench
 echo -e "frappe\n${APP_NAME}" > /home/frappe/frappe-bench/sites/apps.txt
 export  QT_QPA_PLATFORM=offscreen
-npm install -g chalk rollup
+npm install -g chalk
 
 mkdir -p apps
 cd apps
