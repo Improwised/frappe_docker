@@ -10,7 +10,6 @@ mkdir -p /home/frappe/frappe-bench/sites/assets
 cd /home/frappe/frappe-bench
 echo -e "frappe\n${APP_NAME}" > /home/frappe/frappe-bench/sites/apps.txt
 export  QT_QPA_PLATFORM=offscreen
-npm install -g chalk rollup rollup-plugin-app-utils rollup-plugin-vue rollup-plugin-uglify rollup-plugin-buble rollup-plugin-postcss rollup-plugin-node-resolve rollup-plugin-commonjs rollup-plugin-multi-entry
 
 mkdir -p apps
 cd apps
@@ -19,6 +18,7 @@ git clone --depth 1 ${APP_REPO} ${BRANCH} ${APP_NAME}
 
 echo "Install frappe NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/frappe
+yarn
 
 echo "Install ${APP_NAME} NodeJS dependencies . . ."
 cd /home/frappe/frappe-bench/apps/${APP_NAME}
