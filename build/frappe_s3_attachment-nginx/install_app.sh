@@ -10,7 +10,7 @@ mkdir -p /home/frappe/frappe-bench/sites/assets
 cd /home/frappe/frappe-bench
 echo -e "frappe\n${APP_NAME}" > /home/frappe/frappe-bench/sites/apps.txt
 export  QT_QPA_PLATFORM=offscreen
-npm install -g chalk rollup
+npm install -g chalk rollup rollup-plugin-app-utils rollup-plugin-vue rollup-plugin-uglify rollup-plugin-buble rollup-plugin-postcss rollup-plugin-node-resolve rollup-plugin-commonjs rollup-plugin-multi-entry
 
 mkdir -p apps
 cd apps
