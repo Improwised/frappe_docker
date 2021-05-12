@@ -2,7 +2,7 @@
 |---------|-----------------------------------------------------------------------------------------------------------------------------|
 | Master  | ![CI](https://ci.improwised.dev/api/v1/teams/improwised/pipelines/erpnext-img-build/jobs/build-image/badge) |
 
-## This repo contain custome erpnext dockerfiles with [frappe-attachments-s3](https://github.com/zerodha/frappe-attachments-s3) plugin installed
+## This repo contain custom erpnext dockerfiles with [frappe-attachments-s3](https://github.com/zerodha/frappe-attachments-s3) plugin installed
 
 ## Container Images
 
