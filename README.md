@@ -1,6 +1,6 @@
-| Develop | ![CI](https://ci.improwised.dev/api/v1/teams/improwised/pipelines/erpnext-img-build/jobs/build-image/badge)  |
+| Develop | [![CI](https://ci.improwised.dev/api/v1/teams/improwised/pipelines/erpnext-img-build/jobs/build-image/badge)]()  |
 |---------|-----------------------------------------------------------------------------------------------------------------------------|
-| Master  | ![CI](https://ci.improwised.dev/api/v1/teams/improwised/pipelines/erpnext-img-build/jobs/build-image/badge) |
+| Master  | [![CI](https://ci.improwised.dev/api/v1/teams/improwised/pipelines/erpnext-img-build/jobs/build-image/badge)]() |
 
 ## This repo contain custom erpnext dockerfiles with [frappe-attachments-s3](https://github.com/zerodha/frappe-attachments-s3) plugin installed
 
@@ -11,6 +11,7 @@
 >> e.g. `frappe/erpenxt-worker:v13.1.1` -> `improwised/erpnext:v13.1.1` and so
 
 Worker: `docker pull improwised/erpnext-worker`
+
 Nginx: `docker pull improwised/erpnext-worker`
 
 ## Getting Started
