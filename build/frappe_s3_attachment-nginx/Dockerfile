@@ -1,12 +1,12 @@
 ARG NODE_IMAGE_TAG=14-buster-slim
 ARG DOCKER_REGISTRY_PREFIX=frappe
-ARG IMAGE_TAG=v13.4.1
+ARG IMAGE_TAG
 
 FROM node:${NODE_IMAGE_TAG}
 
 ARG GIT_REPO=https://github.com/frappe/erpnext
-ARG GIT_BRANCH=v13.4.1
-ARG FRAPPE_BRANCH=${GIT_BRANCH}
+ARG GIT_BRANCH
+ARG FRAPPE_BRANCH
 
 COPY install_app.sh /install_app
 RUN chmod +x /install_app && \
