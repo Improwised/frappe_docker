@@ -1,15 +1,29 @@
-ARG ERPIMAGE
-FROM bitnami/node:12-prod
-COPY ./install_app.sh /install_app
-RUN install_packages git phantomjs
-RUN /install_app frappe_s3_attachment https://github.com/Improwised/frappe_s3_attachment
+ARG NODE_IMAGE_TAG=14-buster-slim
+ARG DOCKER_REGISTRY_PREFIX=frappe
+ARG IMAGE_TAG=v13.4.1
 
-FROM frappe/erpnext-nginx:$ERPIMAGE
-RUN sed -i 's/^PASS_MAX_DAYS.*/PASS_MAX_DAYS    -1/' /etc/login.defs && \
-    sed -i 's/^PASS_MIN_DAYS.*/PASS_MIN_DAYS    -1/' /etc/login.defs
+FROM node:${NODE_IMAGE_TAG}
+
+ARG GIT_REPO=https://github.com/frappe/erpnext
+ARG GIT_BRANCH=v13.4.1
+ARG FRAPPE_BRANCH=${GIT_BRANCH}
+
+COPY install_app.sh /install_app
+RUN chmod +x /install_app && \
+  apt-get update -y && \
+  apt-get install build-essential git python2 -y && \
+  apt-get clean && \
+  rm -rf /var/lib/apt/lists/*
+
+RUN /install_app erpnext ${GIT_REPO} ${GIT_BRANCH} ${FRAPPE_BRANCH}
+RUN /install_app frappe_s3_attachment https://github.com/Improwised/frappe_s3_attachment "" ${FRAPPE_BRANCH}
+
+FROM ${DOCKER_REGISTRY_PREFIX}/frappe-nginx:${IMAGE_TAG}
+
 COPY --from=0 /home/frappe/frappe-bench/sites/ /var/www/html/
 COPY --from=0 /rsync /rsync
-RUN echo -n "\nfrappe_s3_attachment" >> /var/www/html/apps.txt
+RUN echo "erpnext\nfrappe_s3_attachment" >> /var/www/html/apps.txt
+
 VOLUME [ "/assets" ]
 
 ENTRYPOINT ["/docker-entrypoint.sh"]
