@@ -1,4 +1,4 @@
-#!/bin/bash -x
+#!/bin/bash -ex
 
 APP_NAME=${1}
 APP_REPO=${2}
