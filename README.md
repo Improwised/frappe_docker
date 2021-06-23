@@ -10,6 +10,12 @@ Worker: `docker pull improwised/erpnext-worker`
 
 Nginx: `docker pull improwised/erpnext-worker`
 
+Dockerfiles:
+
+Nginx: https://github.com/Improwised/frappe_docker/tree/develop/build/frappe_s3_attachment-nginx
+
+Worker: https://github.com/Improwised/frappe_docker/tree/develop/build/frappe_s3_attachment-worker
+
 ## Getting Started
 
 ### Try in Play With Docker
