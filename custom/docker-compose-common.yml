@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  redis-cache:
+    image: redis:latest
+    restart: on-failure
+    volumes:
+      - /opt/erpnext/data/redis-cache:/data
+
+  redis-queue:
+    image: redis:latest
+    restart: on-failure
+    volumes:
+      - /opt/erpnext/data/redis-queue:/data
+
+  redis-socketio:
+    image: redis:latest
+    restart: on-failure
+    volumes:
+      - /opt/erpnext/data/redis-socketio:/data
+
+  mariadb:
+    image: mariadb:10.3
+    restart: on-failure
+    environment:
+      - MYSQL_ROOT_PASSWORD=${MYSQL_ROOT_PASSWORD}
+    volumes:
+      - /opt/erpnext/custom/frappe-mariadb.cnf:/etc/mysql/conf.d/frappe.cnf
+      - /opt/erpnext/data/mariadb:/var/lib/mysql
