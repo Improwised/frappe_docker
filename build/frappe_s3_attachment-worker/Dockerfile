@@ -9,6 +9,8 @@ USER root
 RUN apt-get update \
     && apt-get install --no-install-recommends -y \
     gcc \
+    # For attachments-s3
+    libmagic-dev \
     && rm -rf /var/lib/apt/lists/*
 
 USER frappe
