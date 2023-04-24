@@ -7,7 +7,7 @@ ARG GIT_BRANCH
 
 USER root
 RUN apt-get update \
-    && apt-get install --no-install-recommends -y \
+    && apt-get install -y \
     gcc \
     # For attachments-s3
     libmagic-dev \
