@@ -16,6 +16,6 @@ RUN apt-get update \
 COPY install_app.sh /install_app
 RUN chmod +x /install_app
 USER frappe
-RUN install_app erpnext ${GIT_REPO} ${GIT_BRANCH}
-RUN install_app frappe_s3_attachment https://github.com/Improwised/frappe_s3_attachment
+RUN /install_app erpnext ${GIT_REPO} ${GIT_BRANCH}
+RUN /install_app frappe_s3_attachment https://github.com/Improwised/frappe_s3_attachment
 # Only add the branch if you are using a specific tag or branch.
