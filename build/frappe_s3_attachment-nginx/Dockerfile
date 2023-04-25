@@ -19,7 +19,7 @@ RUN /install_app erpnext ${GIT_REPO} ${GIT_BRANCH} ${FRAPPE_BRANCH}
 RUN /install_app frappe_s3_attachment https://github.com/Improwised/frappe_s3_attachment "" ${FRAPPE_BRANCH}
 
 FROM ${DOCKER_REGISTRY_PREFIX}/frappe-nginx:${IMAGE_TAG}
-
+USER root
 COPY --from=0 /home/frappe/frappe-bench/sites/ /var/www/html/
 COPY --from=0 /rsync /rsync
 RUN echo "erpnext\nfrappe_s3_attachment" >> /var/www/html/apps.txt
