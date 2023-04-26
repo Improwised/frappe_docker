@@ -9,6 +9,7 @@ USER root
 RUN apt-get update \
     && apt-get install -y \
     gcc \
+    g++ \
     # For attachments-s3
     libmagic-dev \
     && rm -rf /var/lib/apt/lists/*
